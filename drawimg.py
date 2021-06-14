@@ -17,8 +17,8 @@ vertical_filter = [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]
 horizontal_filter = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
 
 
-# function to "draw" edges of image
 def draw(name, searchtext):
+    """function to "draw" edges of image"""
     # read in the image
     img = plt.imread(name)
     n, m, d = img.shape
@@ -54,8 +54,9 @@ def draw(name, searchtext):
     return r'C:\file_location\drawing_of_(' + searchtext + ').jpg'
 
 
-# download image with searchtext
 def download(searchtext):
+    """download image with searchtext"""
+    
     # open google images
     url = "https://www.google.ca/imghp?hl=en&tab=ri&authuser=0&ogbl"
     driver = webdriver.Chrome('C:/chromedriver.exe')
@@ -100,8 +101,9 @@ def download(searchtext):
         return r'C:\file_location\(' + searchtext + ').jpg'
 
 
-# clarify contents of image
 def denoise(image):
+    """clarify contents of image"""
+    
     img = cv2.imread(image)
     dst = cv2.fastNlMeansDenoising(img, None, 9)
 
